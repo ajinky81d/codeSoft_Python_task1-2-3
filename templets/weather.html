@@ -1,0 +1,48 @@
+ {% extends "base.html" %}
+ {% block title %}Portfolio{% endblock title%}
+
+ {% block body %}
+ <section class="vh-100">
+    <div class="container py-5 h-100">
+  
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-8 col-lg-6 col-xl-4">
+  
+          <h3 class="mb-4 pb-2 fw-normal">Check the weather forecast</h3>
+          <form action='' method='POST'>
+            {% csrf_token %}
+          <div class="input-group rounded mb-3">
+            <input type="search" class="form-control rounded" name='city' placeholder="City" aria-label="Search"
+              aria-describedby="search-addon" />
+              <button class="add btn btn-primary font-weight-bold todo-list-add-btn">Add</button>
+          </div>
+        </form>
+  
+          <div class="mb-4 pb-2">
+            
+            </div>
+  
+            
+          </div>
+  
+          <div class="card shadow-0 border">
+            <div class="card-body p-4">
+  
+              <h4 class="mb-2 sfw-normal">{{city}}</h4>
+              <p class="mb-2">Humadity: <strong>{{Humadity}}  g.m-3</strong></p>
+              <p >Current Tempreture: <strong>{{Temp}} celcius</strong></p>
+              <p>Description: <strong>{{desc}}</strong>
+                
+  
+            </div>
+          </div>
+  
+        </div>
+      </div>
+  
+    </div>
+    <p>&copy; 2023 codesoftProject.com</p>
+  </section>
+
+ 
+ {% endblock body%}

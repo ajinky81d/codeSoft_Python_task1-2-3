@@ -1,0 +1,44 @@
+ {% extends "base.html" %}
+ {% block title %}To Do{% endblock title%}
+
+
+ {% block body %} 
+ <div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card px-3">
+                    <div class="card-body">
+                        <form action='' method='POST'>
+                            {% csrf_token %}
+                        <h4 class="card-title">Awesome Todo list</h4>
+                        <div class="add-items d-flex"> <input type="text" class="form-control todo-list-input "name='name' placeholder="What do you need to do today?"> <button class="add btn btn-primary font-weight-bold todo-list-add-btn">Add</button> </div>
+                        {% for task in tasks%}
+                        <div class="list ">
+                            <ul class="d-flex flex-column-reverse todo-list">
+                                <li>
+                                    <div class="form-check"> <label class="form-check-label"> <input class="checkbox" name='del' type="checkbox"> {{task}} <i class="input-helper"></i></label> </div> <i class="remove mdi mdi-close-circle-outline"></i>
+                                    <form action="/del/{{task.id}}" method="POS" style=" padding-right: 4%; padding-bottom: 3%;">
+                                        {% csrf_token %}
+                                        <button value="remove" type="submit"  class="btn btn-primary " style="float: right;"><span class="glyphicon glyphicon-trash"></span>Remove</button>
+                                      </form>
+                                </li>
+                                
+                            </ul>
+                             
+                             
+                        </div>
+                        {% endfor %}
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+  
+
+ 
+  
+ {% endblock body%}
